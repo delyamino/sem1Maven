@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import org.yaml.snakeyaml.Yaml;
+import java.io.PrintStream;
 
 /**
  *
@@ -16,6 +17,7 @@ import org.yaml.snakeyaml.Yaml;
 public class Sem1Maven {
     
     public static void main(String[] args) {
+        System.setOut(new PrintStream(System.out, true, "UTF-8"));
         Yaml yaml = new Yaml();
         InputStream inputStream = People.class.getClassLoader().getResourceAsStream("yamlPeople.yaml");
         People data = yaml.loadAs(inputStream, People.class);
